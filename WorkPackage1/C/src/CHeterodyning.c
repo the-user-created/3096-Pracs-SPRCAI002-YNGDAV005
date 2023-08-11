@@ -22,7 +22,7 @@ int main(int argc, char**argv){
     printf("End Unthreaded Test\n");
 
     // Write result array to txt file
-    FILE *f = fopen("result.txt", "w");
+    FILE *f = fopen("../../PyComparison/result.txt", "w");
     if (f == NULL)
     {
         printf("Error opening file!\n");
