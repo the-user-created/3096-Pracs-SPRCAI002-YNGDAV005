@@ -31,6 +31,8 @@ def main():
     # Write the result array to a text file
     with open("../PyComparison/result_py.txt", "w") as f:
         for i in range(len(result)):
+            # Round the result to 6 decimal places
+            result[i] = round(result[i], 6)
             f.write("{}\n".format(result[i]))
     print("Finished writing to file")
 
