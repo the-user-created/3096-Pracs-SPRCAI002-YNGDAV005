@@ -45,11 +45,26 @@ int main(int argc, char** argv){
         }
     }
 
-  // No more active threads, so no more critical sections required
+    // No more active threads, so no more critical sections required
+    printf("All threads have quit\n");
+    printf("Time taken for threads to run = %lg ms\n", toc()/1e-3);
 
-  printf("All threads have quit\n");
-  printf("Time taken for threads to run = %lg ms\n", toc()/1e-3);
+    // Write result array to txt file
+    FILE *f = fopen("../../PyComparison/result.txt", "w");
+    if (f == NULL)
+    {
+    printf("Error opening file!\n");
+    exit(1);
+    }
 
+    // print array to file
+    for (int i = 0; i < SAMPLE_COUNT; i++)
+    {
+    fprintf(f, "%f\n", result[i]);
+    }
+
+    // close file
+    fclose(f);
   return 0;
 }
 //------------------------------------------------------------------------------

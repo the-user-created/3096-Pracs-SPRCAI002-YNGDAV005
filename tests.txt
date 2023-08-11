@@ -1,34 +1,33 @@
-Golden Measure: 57.3858ms, 41.6564ms, 41.2182ms\\
-Unthreaded C time: 14.811261ms, 14.289288ms, 14.655271ms\\
+Golden Measure: 41.5110ms, 42.1113ms, 41.3127ms
+Unthreaded C time: 12.226129ms, 14.430031ms, 16.752883ms (93.6%)
 
 % 1 thread below is not required
-1 Thread C time: 40.9263ms, 35.0757ms, 44.5631ms\\
-2 Thread C time: 14.9718ms, 21.5683ms, 16.4917ms\\
-4 Thread C time: 20.7722ms, 21.3222ms, 21.8671ms\\
-8 Thread C time: 10.1726ms, 8.90267ms, 2.28992ms\\
-16 Thread C time: 2.11692ms, 1.95993ms, 2.06992ms\\
-32 Thread C time: 9.07683ms, 4.22445ms, 8.99584ms\\
+1 Thread C time: 40.9263ms, 35.0757ms, 44.5631ms
+2 Thread C time: 14.9718ms, 21.5683ms, 16.4917ms
+4 Thread C time: 20.7722ms, 21.3222ms, 21.8671ms
+8 Thread C time: 10.1726ms, 8.90267ms, 2.28992ms
+16 Thread C time: 2.11692ms, 1.95993ms, 2.06992ms
+32 Thread C time: 9.07683ms, 4.22445ms, 8.99584ms
 
 % Compiler flags
--O0: 16.913290ms, 15.319453ms, 11.583832ms\\
--O1: 12.745906ms, 10.001142ms, 13.663829ms\\
--O2: 21.731280ms, 13.390941ms, 14.051890ms\\
--O3: 12.545087ms, 16.304819ms, 14.690938ms\\
--Ofast: 13.681075ms, 13.934059ms, 16.646877ms\\
--Os: 11.240284ms, 8.932431ms, 13.524139ms\\
--Og: 15.682084ms, 23.871606ms, 11.379336ms\\
+-O0: 16.913290ms, 15.319453ms, 11.583832ms
+-O1: 12.745906ms, 10.001142ms, 13.663829ms
+-O2: 21.731280ms, 13.390941ms, 14.051890ms
+-O3: 12.545087ms, 16.304819ms, 14.690938ms
+-Ofast: 13.681075ms, 13.934059ms, 16.646877ms
+-Os: 11.240284ms, 8.932431ms, 13.524139ms
+-Og: 15.682084ms, 23.871606ms, 11.379336ms
 
-% TODO
--funroll-loops -O0: 19.886346ms, 13.986541ms, 15.802483ms\\
--funroll-loops -O1: 9.452759ms, 8.721778ms, 8.712778ms\\
--funroll-loops -O2: 15.231638ms, 13.381682ms, 29.627297ms\\
--funroll-loops -O3: 12.878487ms, 11.295550ms, 11.032561ms\\
--funroll-loops -Ofast: 13.728518ms, 12.971545ms, 13.379531ms\\
--funroll-loops -Os: 9.679690ms, 16.807463ms, 13.425571ms\\
--funroll-loops -Og: 20.070402ms, 15.648535ms, 14.643564ms\\
+-funroll-loops -O0: 19.886346ms, 13.986541ms, 15.802483ms
+-funroll-loops -O1: 9.452759ms, 8.721778ms, 8.712778ms
+-funroll-loops -O2: 15.231638ms, 13.381682ms, 29.627297ms
+-funroll-loops -O3: 12.878487ms, 11.295550ms, 11.032561ms
+-funroll-loops -Ofast: 13.728518ms, 12.971545ms, 13.379531ms
+-funroll-loops -Os: 9.679690ms, 16.807463ms, 13.425571ms
+-funroll-loops -Og: 20.070402ms, 15.648535ms, 14.643564ms
 
 
 % Bit Widths:
-Double: 19.845046ms, 15.187269ms, 11.417451ms (14.5ms)\\
-Float: 12.598358ms, 15.659202ms, 16.372166ms (14.9ms)\\
-FP16: 15.812253ms, 14.726304ms, 16.027244ms (15.5ms)\\
+Double: 19.845046ms, 15.187269ms, 11.417451ms (14.5ms)
+Float: 12.598358ms, 15.659202ms, 16.372166ms (14.9ms)
+FP16: 15.812253ms, 14.726304ms, 16.027244ms (15.5ms)
