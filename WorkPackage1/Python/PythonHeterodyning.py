@@ -29,7 +29,7 @@ def main():
     Timing.endlog()
 
     # Write the result array to a text file
-    with open("../PyComparison/result.txt", "w") as f:
+    with open("../PyComparison/result_py.txt", "w") as f:
         for i in range(len(result)):
             f.write("{}\n".format(result[i]))
     print("Finished writing to file")
