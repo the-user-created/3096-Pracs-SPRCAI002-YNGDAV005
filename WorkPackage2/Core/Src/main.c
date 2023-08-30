@@ -138,6 +138,9 @@ int main(void)
     }
 
     htim16.Instance->ARR = currentDelay - 1;  // TASK 6
+
+    // Debouncing
+    delay(10000);
   }
   /* USER CODE END 3 */
 }
