@@ -54,7 +54,7 @@ TIM_HandleTypeDef htim16;
 /* USER CODE BEGIN PV */
 // TODO: Define any input variables
 static uint8_t patterns[] = {0xAA, 0x55, 0xCC, 0x33, 0xF0, 0x0F};  // TASK 1
-uint32_t currentDelay = 1000;
+uint32_t currentDelay = 1000;  // TASK 6
 
 /* USER CODE END PV */
 
@@ -137,9 +137,6 @@ int main(void)
     }
 
     htim16.Instance->ARR = currentDelay - 1;  // TASK 6
-
-    // Delay to prevent button bouncing - UNUSED
-    //delay(10000);
   }
   /* USER CODE END 3 */
 }
