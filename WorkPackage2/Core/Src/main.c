@@ -125,6 +125,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  // TODO: Check button PA0; if pressed, change timer delay
+    // TASK 6
     // Check if the button is pressed
     if (LL_GPIO_IsInputPinSet(Button0_GPIO_Port, Button0_Pin) == 0) {
       if (currentDelay == 500) {
@@ -443,10 +444,7 @@ void TIM16_IRQHandler(void)
 	// Acknowledge interrupt
 	HAL_TIM_IRQHandler(&htim16);
 
-	// TODO: Change to next LED pattern; output 0x01 if the read SPI data is incorrect
   // TASK 4
-
-  // TASK 5
   static uint16_t currentIndex = 0; // Keep track of the current index
   uint8_t data = read_from_address(currentIndex); // Read the data from the current index
 
@@ -454,6 +452,8 @@ void TIM16_IRQHandler(void)
   if (data == patterns[currentIndex]) {
     GPIOB->ODR = data;  // Output the read SPI data if it is correct
   } else {
+    // TODO: Change to next LED pattern; output 0x01 if the read SPI data is incorrect
+    // TASK 5
     GPIOB->ODR = 0x01;  // Output 0x01 (0b00000001) if the read SPI data is incorrect
   }
 
