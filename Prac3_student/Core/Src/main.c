@@ -330,20 +330,22 @@ static void MX_GPIO_Init(void) {
 /* USER CODE BEGIN 4 */
 void EXTI0_1_IRQHandler(void) {
     // TODO: Add code to switch LED7 delay frequency
-    static uint32_t lastPressTime = 0;
-    uint32_t currentTime = HAL_GetTick();
-    uint32_t elapsedTime = currentTime - lastPressTime;
+    if (__HAL_GPIO_EXTI_GET_IT(Button0_Pin) != RESET) {
+        // Clear interrupt flags
+        __HAL_GPIO_EXTI_CLEAR_IT(Button0_Pin);
 
-    if (elapsedTime >= 500) {
-        HAL_GPIO_TogglePin(LED7_GPIO_Port, LED7_Pin);
-
-        if (HAL_GPIO_ReadPin(LED7_GPIO_Port, LED7_Pin) == GPIO_PIN_SET) {
-            HAL_Delay(500);
-        } else {
-            HAL_Delay(1000);
+        // Debouncing logic
+        static uint32_t last_press_time = 0;
+        uint32_t current_time = HAL_GetTick();
+        if (current_time - last_press_time > 200) { // Minimum time between button presses (debounce time)
+            // Toggle the delay frequency between 1 Hz and 2 Hz
+            if (delay_t == 500) {
+                delay_t = 1000;
+            } else {
+                delay_t = 500;
+            }
+            last_press_time = current_time;
         }
-
-        lastPressTime = HAL_GetTick();
     }
 
     HAL_GPIO_EXTI_IRQHandler(Button0_Pin); // Clear interrupt flags
@@ -359,6 +361,7 @@ void writeLCD(char *char_in) {
 // Get ADC value
 uint32_t pollADC(void) {
     // TODO: Complete function body to get ADC val
+    uint32_t val = 0;
 
     return val;
 }
@@ -366,6 +369,7 @@ uint32_t pollADC(void) {
 // Calculate PWM CCR value
 uint32_t ADCtoCCR(uint32_t adc_val) {
     // TODO: Calculate CCR val using an appropriate equation
+    uint32_t val = 0;
 
     return val;
 }
