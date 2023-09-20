@@ -117,11 +117,22 @@ int main(void) {
         // Toggle LED0
         HAL_GPIO_TogglePin(GPIOB, LED7_Pin);
 
-        // ADC to LCD; TODO: Read POT1 value and write to LCD
+        // TASK 2 {
+        // ADC to LCD;
+        // Get ADC value
+        uint32_t adc_val = pollADC();
+        char adc_val_str[16];
+        // Convert ADC value to string and store in adc_val_str
+        sprintf(adc_val_str, "ADC: %d", adc_val);
+        // Write string to LCD
+        writeLCD(adc_val_str);
+        // } TASK 2: main END
 
+        // Update PWM value;
+        // TASK 3: Map ADC value to CCR value
+        CCR = ADCtoCCR(adc_val);
 
-        // Update PWM value; TODO: Get CRR
-
+        // Update PWM duty cycle
         __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, CCR);
 
         // Wait for delay ms
@@ -329,49 +340,65 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE BEGIN 4 */
 void EXTI0_1_IRQHandler(void) {
-    // TODO: Add code to switch LED7 delay frequency
-    if (__HAL_GPIO_EXTI_GET_IT(Button0_Pin) != RESET) {
-        // Clear interrupt flags
-        __HAL_GPIO_EXTI_CLEAR_IT(Button0_Pin);
+    // Why does the frequency occasionally not change when the button is pressed?
+    // This is because when the button is pressed, the mechanical switch in the
+    // button can produce multiple rapid transitions from 0 to 1. This causes the
+    // interrupt to be triggered multiple times in quick succession.
+    //
+    // To fix this, we can add a delay between each button press to
+    // ensure that the delay value is only updated once per button press.
 
-        // Debouncing logic
-        static uint32_t last_press_time = 0;
-        uint32_t current_time = HAL_GetTick();
-        if (current_time - last_press_time > 200) { // Minimum time between button presses (debounce time)
-            // Toggle the delay frequency between 1 Hz and 2 Hz
-            if (delay_t == 500) {
-                delay_t = 1000;
-            } else {
-                delay_t = 500;
-            }
-            last_press_time = current_time;
+    // TASK 1: Switch LED7 delay frequency
+    static uint32_t lastButtonPressTime = 0;  // Store the last button press time
+    uint32_t currentTick = HAL_GetTick();  // Number of ms since the program started
+
+    // Check if the button is pressed and enough time (>200ms) has passed since the last press
+    if (LL_GPIO_IsInputPinSet(Button0_GPIO_Port, Button0_Pin) == 1  && (currentTick - lastButtonPressTime) > 200) {
+        // Toggle the delay value between 1 Hz (1000ms) and 2 Hz (500ms)
+        if (delay_t == 1000) {
+            delay_t = 500;
+        } else {
+            delay_t = 1000;
         }
+
+        // Update the last button press time
+        lastButtonPressTime = currentTick;
     }
 
     HAL_GPIO_EXTI_IRQHandler(Button0_Pin); // Clear interrupt flags
 }
 
-// TODO: Complete the writeLCD function
 void writeLCD(char *char_in) {
-    delay(3000);
-    lcd_command(CLEAR);
-
+    // TASK 2: Write to LCD
+    delay(3000);  // Delay for 3ms
+    lcd_command(CLEAR);  // Clear LCD
+    delay(3000);  // Delay for 3ms
+    lcd_putstring(char_in);  // Write string to LCD
 }
 
 // Get ADC value
 uint32_t pollADC(void) {
-    // TODO: Complete function body to get ADC val
-    uint32_t val = 0;
+    // TASK 2: Poll ADC value
+    // Start ADC conversion
+    HAL_ADC_Start(&hadc);
+    // Wait for conversion to complete
+    HAL_ADC_PollForConversion(&hadc, HAL_MAX_DELAY);
+    // Get the converted ADC value
+    uint32_t val = HAL_ADC_GetValue(&hadc);
+    // Stop ADC conversion
+    HAL_ADC_Stop(&hadc);
 
+    // Return ADC value
     return val;
 }
 
 // Calculate PWM CCR value
 uint32_t ADCtoCCR(uint32_t adc_val) {
-    // TODO: Calculate CCR val using an appropriate equation
-    uint32_t val = 0;
+    // TASK 3: Map ADC value to CCR value
+    uint32_t ccr_val = (adc_val * 47999) / 4095;
 
-    return val;
+    // Return CCR value
+    return ccr_val;
 }
 
 void ADC1_COMP_IRQHandler(void) {
