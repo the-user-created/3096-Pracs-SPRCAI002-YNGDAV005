@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
   30:Core/Src/system_stm32f0xx.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
   31:Core/Src/system_stm32f0xx.c ****   *
   32:Core/Src/system_stm32f0xx.c ****   ******************************************************************************
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 2
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 2
 
 
   33:Core/Src/system_stm32f0xx.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
   87:Core/Src/system_stm32f0xx.c ****   */
   88:Core/Src/system_stm32f0xx.c **** 
   89:Core/Src/system_stm32f0xx.c **** /** @addtogroup STM32F0xx_System_Private_Variables
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 3
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 3
 
 
   90:Core/Src/system_stm32f0xx.c ****   * @{
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
   36              	.LFE40:
   38              		.global	__aeabi_uidiv
   39              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 4
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 4
 
 
   40              		.align	1
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
   50              		@ args = 0, pretend = 0, frame = 0
   51              		@ frame_needed = 0, uses_anonymous_args = 0
   52 0000 10B5     		push	{r4, lr}
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 5
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 5
 
 
   53              	.LCFI0:
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
  213:Core/Src/system_stm32f0xx.c ****       {
  214:Core/Src/system_stm32f0xx.c **** #if defined(STM32F042x6) || defined(STM32F048xx)  || defined(STM32F070x6) \
  215:Core/Src/system_stm32f0xx.c ****  || defined(STM32F078xx) || defined(STM32F071xB)  || defined(STM32F072xB) \
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 6
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 6
 
 
  216:Core/Src/system_stm32f0xx.c ****  || defined(STM32F070xB) || defined(STM32F091xC) || defined(STM32F098xx)  || defined(STM32F030xC)
@@ -358,20 +358,20 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
  105 002a 0F23     		movs	r3, #15
  106 002c 1340     		ands	r3, r2
  107              		.loc 1 233 22 view .LVU21
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 7
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 7
 
 
  108 002e 174A     		ldr	r2, .L9+12
- 109 0030 D35C     		ldrb	r3, [r2, r3]
+ 109 0030 D15C     		ldrb	r1, [r2, r3]
  110              	.LVL8:
  234:Core/Src/system_stm32f0xx.c ****   /* HCLK clock frequency */
  235:Core/Src/system_stm32f0xx.c ****   SystemCoreClock >>= tmp;
  111              		.loc 1 235 3 is_stmt 1 view .LVU22
  112              		.loc 1 235 19 is_stmt 0 view .LVU23
  113 0032 144A     		ldr	r2, .L9+4
- 114 0034 1168     		ldr	r1, [r2]
- 115 0036 D940     		lsrs	r1, r1, r3
- 116 0038 1160     		str	r1, [r2]
+ 114 0034 1368     		ldr	r3, [r2]
+ 115 0036 CB40     		lsrs	r3, r3, r1
+ 116 0038 1360     		str	r3, [r2]
  236:Core/Src/system_stm32f0xx.c **** }
  117              		.loc 1 236 1 view .LVU24
  118              		@ sp needed
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
  147              		.loc 1 197 27 is_stmt 0 view .LVU36
  148 004a A40C     		lsrs	r4, r4, #18
  149              	.LVL16:
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 8
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 8
 
 
  197:Core/Src/system_stm32f0xx.c ****       predivfactor = (RCC->CFGR2 & RCC_CFGR2_PREDIV) + 1;
@@ -445,23 +445,23 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
  164              		.loc 1 200 7 is_stmt 1 view .LVU43
  200:Core/Src/system_stm32f0xx.c ****       {
  165              		.loc 1 200 10 is_stmt 0 view .LVU44
- 166 0058 D303     		lsls	r3, r2, #15
+ 166 0058 D203     		lsls	r2, r2, #15
  167 005a 06D5     		bpl	.L7
+ 168              	.LVL19:
  203:Core/Src/system_stm32f0xx.c ****       }
- 168              		.loc 1 203 9 is_stmt 1 view .LVU45
+ 169              		.loc 1 203 9 is_stmt 1 view .LVU45
  203:Core/Src/system_stm32f0xx.c ****       }
- 169              		.loc 1 203 37 is_stmt 0 view .LVU46
- 170 005c 0A48     		ldr	r0, .L9+8
- 171 005e FFF7FEFF 		bl	__aeabi_uidiv
- 172              	.LVL19:
+ 170              		.loc 1 203 37 is_stmt 0 view .LVU46
+ 171 005c 0A48     		ldr	r0, .L9+8
+ 172 005e FFF7FEFF 		bl	__aeabi_uidiv
+ 173              	.LVL20:
  203:Core/Src/system_stm32f0xx.c ****       }
- 173              		.loc 1 203 52 view .LVU47
- 174 0062 4443     		muls	r4, r0
- 175              	.LVL20:
+ 174              		.loc 1 203 52 view .LVU47
+ 175 0062 6043     		muls	r0, r4
  203:Core/Src/system_stm32f0xx.c ****       }
  176              		.loc 1 203 25 view .LVU48
  177 0064 074B     		ldr	r3, .L9+4
- 178 0066 1C60     		str	r4, [r3]
+ 178 0066 1860     		str	r0, [r3]
  179 0068 DCE7     		b	.L6
  180              	.LVL21:
  181              	.L7:
@@ -470,79 +470,73 @@ ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 1
  221:Core/Src/system_stm32f0xx.c **** #endif /* STM32F042x6 || STM32F048xx || STM32F070x6 || 
  183              		.loc 1 221 44 is_stmt 0 view .LVU50
  184 006a 6201     		lsls	r2, r4, #5
- 185              	.LVL22:
+ 185 006c 121B     		subs	r2, r2, r4
+ 186 006e 9301     		lsls	r3, r2, #6
+ 187 0070 9B1A     		subs	r3, r3, r2
+ 188 0072 DB00     		lsls	r3, r3, #3
+ 189 0074 1B19     		adds	r3, r3, r4
+ 190 0076 1B02     		lsls	r3, r3, #8
  221:Core/Src/system_stm32f0xx.c **** #endif /* STM32F042x6 || STM32F048xx || STM32F070x6 || 
- 186              		.loc 1 221 44 view .LVU51
- 187 006c 121B     		subs	r2, r2, r4
- 188 006e 9301     		lsls	r3, r2, #6
- 189 0070 9B1A     		subs	r3, r3, r2
- 190 0072 DB00     		lsls	r3, r3, #3
- 191 0074 1C19     		adds	r4, r3, r4
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 9
+ 191              		.loc 1 221 25 view .LVU51
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 9
 
 
- 192              	.LVL23:
- 221:Core/Src/system_stm32f0xx.c **** #endif /* STM32F042x6 || STM32F048xx || STM32F070x6 || 
- 193              		.loc 1 221 44 view .LVU52
- 194 0076 2402     		lsls	r4, r4, #8
- 221:Core/Src/system_stm32f0xx.c **** #endif /* STM32F042x6 || STM32F048xx || STM32F070x6 || 
- 195              		.loc 1 221 25 view .LVU53
- 196 0078 024B     		ldr	r3, .L9+4
- 197 007a 1C60     		str	r4, [r3]
- 198 007c D2E7     		b	.L6
- 199              	.L10:
- 200 007e C046     		.align	2
- 201              	.L9:
- 202 0080 00100240 		.word	1073876992
- 203 0084 00000000 		.word	.LANCHOR0
- 204 0088 00127A00 		.word	8000000
- 205 008c 00000000 		.word	.LANCHOR1
- 206              		.cfi_endproc
- 207              	.LFE41:
- 209              		.global	APBPrescTable
- 210              		.global	AHBPrescTable
- 211              		.global	SystemCoreClock
- 212              		.section	.data.SystemCoreClock,"aw"
- 213              		.align	2
- 214              		.set	.LANCHOR0,. + 0
- 217              	SystemCoreClock:
- 218 0000 00127A00 		.word	8000000
- 219              		.section	.rodata.AHBPrescTable,"a"
- 220              		.align	2
- 221              		.set	.LANCHOR1,. + 0
- 224              	AHBPrescTable:
- 225 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\002\003\004\006"
- 225      00000000 
- 225      01020304 
- 225      06
- 226 000d 070809   		.ascii	"\007\010\011"
- 227              		.section	.rodata.APBPrescTable,"a"
- 228              		.align	2
- 231              	APBPrescTable:
- 232 0000 00000000 		.ascii	"\000\000\000\000\001\002\003\004"
- 232      01020304 
- 233              		.text
- 234              	.Letext0:
- 235              		.file 2 "/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/arm-none-eabi/include/machine/_default_ty
- 236              		.file 3 "/usr/local/Cellar/arm-gcc-bin@10/10.3-2021.10_1/arm-none-eabi/include/sys/_stdint.h"
- 237              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
- 238              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h"
-ARM GAS  /var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s 			page 10
+ 192 0078 024A     		ldr	r2, .L9+4
+ 193 007a 1360     		str	r3, [r2]
+ 194 007c D2E7     		b	.L6
+ 195              	.L10:
+ 196 007e C046     		.align	2
+ 197              	.L9:
+ 198 0080 00100240 		.word	1073876992
+ 199 0084 00000000 		.word	.LANCHOR0
+ 200 0088 00127A00 		.word	8000000
+ 201 008c 00000000 		.word	.LANCHOR1
+ 202              		.cfi_endproc
+ 203              	.LFE41:
+ 205              		.global	APBPrescTable
+ 206              		.global	AHBPrescTable
+ 207              		.global	SystemCoreClock
+ 208              		.section	.data.SystemCoreClock,"aw"
+ 209              		.align	2
+ 210              		.set	.LANCHOR0,. + 0
+ 213              	SystemCoreClock:
+ 214 0000 00127A00 		.word	8000000
+ 215              		.section	.rodata.AHBPrescTable,"a"
+ 216              		.align	2
+ 217              		.set	.LANCHOR1,. + 0
+ 220              	AHBPrescTable:
+ 221 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\002\003\004\006"
+ 221      00000000 
+ 221      01020304 
+ 221      06
+ 222 000d 070809   		.ascii	"\007\010\011"
+ 223              		.section	.rodata.APBPrescTable,"a"
+ 224              		.align	2
+ 227              	APBPrescTable:
+ 228 0000 00000000 		.ascii	"\000\000\000\000\001\002\003\004"
+ 228      01020304 
+ 229              		.text
+ 230              	.Letext0:
+ 231              		.file 2 "/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.external
+ 232              		.file 3 "/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.external
+ 233              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 234              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h"
+ARM GAS  /var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 system_stm32f0xx.c
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:18     .text.SystemInit:0000000000000000 $t
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:24     .text.SystemInit:0000000000000000 SystemInit
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:40     .text.SystemCoreClockUpdate:0000000000000000 $t
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:46     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:202    .text.SystemCoreClockUpdate:0000000000000080 $d
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:231    .rodata.APBPrescTable:0000000000000000 APBPrescTable
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:224    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:217    .data.SystemCoreClock:0000000000000000 SystemCoreClock
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:213    .data.SystemCoreClock:0000000000000000 $d
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:220    .rodata.AHBPrescTable:0000000000000000 $d
-/var/folders/d0/f35b7wvd78lf6p1pdkt2l1k40000gn/T//cczLmzi1.s:228    .rodata.APBPrescTable:0000000000000000 $d
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:18     .text.SystemInit:0000000000000000 $t
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:24     .text.SystemInit:0000000000000000 SystemInit
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:40     .text.SystemCoreClockUpdate:0000000000000000 $t
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:46     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:198    .text.SystemCoreClockUpdate:0000000000000080 $d
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:227    .rodata.APBPrescTable:0000000000000000 APBPrescTable
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:220    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:213    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:209    .data.SystemCoreClock:0000000000000000 $d
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:216    .rodata.AHBPrescTable:0000000000000000 $d
+/var/folders/t1/0rzb2v0x1b34jnpq8mwbh17c0000gn/T//cchkORP7.s:224    .rodata.APBPrescTable:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_uidiv
