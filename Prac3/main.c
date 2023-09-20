@@ -349,11 +349,10 @@ void EXTI0_1_IRQHandler(void) {
     // ensure that the delay value is only updated once per button press.
 
     // TASK 1: Switch LED7 delay frequency
-    static uint32_t lastButtonPressTime = 0;  // Store the last button press time
-    uint32_t currentTick = HAL_GetTick();  // Number of ms since the program started
+    curr_millis = HAL_GetTick();  // Number of ms since the program started
 
-    // Check if the button is pressed and enough time (>200ms) has passed since the last press
-    if (LL_GPIO_IsInputPinSet(Button0_GPIO_Port, Button0_Pin) == 1  && (currentTick - lastButtonPressTime) > 200) {
+    // Check if enough time (>200ms) has passed since the last press
+    if ((curr_millis - prev_millis) > 200) {
         // Toggle the delay value between 1 Hz (1000ms) and 2 Hz (500ms)
         if (delay_t == 1000) {
             delay_t = 500;
@@ -362,7 +361,7 @@ void EXTI0_1_IRQHandler(void) {
         }
 
         // Update the last button press time
-        lastButtonPressTime = currentTick;
+        prev_millis = curr_millis;
     }
 
     HAL_GPIO_EXTI_IRQHandler(Button0_Pin); // Clear interrupt flags
