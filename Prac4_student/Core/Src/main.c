@@ -36,7 +36,7 @@
 // TODO: Add values for below variables - TASK 2
 #define NS       256 // Number of samples in LUT
 #define TIM2CLK  8000000 // STM Clock frequency
-#define F_SIGNAL 1000 // Frequency of output analog signal
+#define F_SIGNAL 2 // Frequency of output analog signal
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,16 +51,16 @@ DMA_HandleTypeDef hdma_tim2_ch1;
 
 /* USER CODE BEGIN PV */
 // TODO: Add code for global variables, including LUTs - TASK 1
+uint32_t prev_millis = 0;
+uint32_t curr_millis = 0;
 
 uint32_t Sin_LUT[NS] = {511, 523, 536, 548, 561, 573, 585, 598, 610, 622, 635, 647, 659, 671, 683, 694, 706, 718, 729, 740, 751, 762, 773, 784, 794, 805, 815, 825, 835, 844, 854, 863, 872, 881, 889, 897, 906, 913, 921, 928, 935, 942, 949, 955, 961, 967, 972, 978, 983, 987, 992, 996, 999, 1003, 1006, 1009, 1012, 1014, 1016, 1018, 1019, 1020, 1021, 1021, 1022, 1021, 1021, 1020, 1019, 1018, 1016, 1014, 1012, 1009, 1006, 1003, 999, 996, 992, 987, 983, 978, 972, 967, 961, 955, 949, 942, 935, 928, 921, 913, 906, 897, 889, 881, 872, 863, 854, 844, 835, 825, 815, 805, 794, 784, 773, 762, 751, 740, 729, 718, 706, 694, 683, 671, 659, 647, 635, 622, 610, 598, 585, 573, 561, 548, 536, 523, 511, 498, 485, 473, 460, 448, 436, 423, 411, 399, 386, 374, 362, 350, 338, 327, 315, 303, 292, 281, 270, 259, 248, 237, 227, 216, 206, 196, 186, 177, 167, 158, 149, 140, 132, 124, 115, 108, 100, 93, 86, 79, 72, 66, 60, 54, 49, 43, 38, 34, 29, 25, 22, 18, 15, 12, 9, 7, 5, 3, 2, 1, 0, 0, 0, 0, 0, 1, 2, 3, 5, 7, 9, 12, 15, 18, 22, 25, 29, 34, 38, 43, 49, 54, 60, 66, 72, 79, 86, 93, 100, 108, 115, 124, 132, 140, 149, 158, 167, 177, 186, 196, 206, 216, 227, 237, 248, 259, 270, 281, 292, 303, 315, 327, 338, 350, 362, 374, 386, 399, 411, 423, 436, 448, 460, 473, 485, 498};
 uint32_t saw_LUT[NS] = {0, 3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95, 99, 103, 107, 111, 115, 119, 123, 127, 131, 135, 139, 143, 147, 151, 155, 159, 163, 167, 171, 175, 179, 183, 187, 191, 195, 199, 203, 207, 211, 215, 219, 223, 227, 231, 235, 239, 243, 247, 251, 255, 259, 263, 267, 271, 275, 279, 283, 287, 291, 295, 299, 303, 307, 311, 315, 319, 323, 327, 331, 335, 339, 343, 347, 351, 355, 359, 363, 367, 371, 375, 379, 383, 387, 391, 395, 399, 403, 407, 411, 415, 419, 423, 427, 431, 435, 439, 443, 447, 451, 455, 459, 463, 467, 471, 475, 479, 483, 487, 491, 495, 499, 503, 507, 511, 515, 519, 523, 527, 531, 535, 539, 543, 547, 551, 555, 559, 563, 567, 571, 575, 579, 583, 587, 591, 595, 599, 603, 607, 611, 615, 619, 623, 627, 631, 635, 639, 643, 647, 651, 655, 659, 663, 667, 671, 675, 679, 683, 687, 691, 695, 699, 703, 707, 711, 715, 719, 723, 727, 731, 735, 739, 743, 747, 751, 755, 759, 763, 767, 771, 775, 779, 783, 787, 791, 795, 799, 803, 807, 811, 815, 819, 823, 827, 831, 835, 839, 843, 847, 851, 855, 859, 863, 867, 871, 875, 879, 883, 887, 891, 895, 899, 903, 907, 911, 915, 919, 923, 927, 931, 935, 939, 943, 947, 951, 955, 959, 963, 967, 971, 975, 979, 983, 987, 991, 995, 999, 1003, 1007, 1011, 1015, 1019};
 uint32_t triangle_LUT[NS] = {1023, 1015, 1007, 999, 991, 983, 975, 967, 959, 951, 943, 935, 927, 919, 911, 903, 895, 887, 879, 871, 863, 855, 847, 839, 831, 823, 815, 807, 799, 791, 783, 775, 767, 759, 751, 743, 735, 727, 719, 711, 703, 695, 687, 679, 671, 663, 655, 647, 639, 631, 623, 615, 607, 599, 591, 583, 575, 567, 559, 551, 543, 535, 527, 519, 511, 503, 495, 487, 479, 471, 463, 455, 447, 439, 431, 423, 415, 407, 399, 391, 383, 375, 367, 359, 351, 343, 335, 327, 319, 311, 303, 295, 287, 279, 271, 263, 255, 247, 239, 231, 223, 215, 207, 199, 191, 183, 175, 167, 159, 151, 143, 135, 127, 119, 111, 103, 95, 87, 79, 71, 63, 55, 47, 39, 31, 23, 15, 7, 0, 7, 15, 23, 31, 39, 47, 55, 63, 71, 79, 87, 95, 103, 111, 119, 127, 135, 143, 151, 159, 167, 175, 183, 191, 199, 207, 215, 223, 231, 239, 247, 255, 263, 271, 279, 287, 295, 303, 311, 319, 327, 335, 343, 351, 359, 367, 375, 383, 391, 399, 407, 415, 423, 431, 439, 447, 455, 463, 471, 479, 487, 495, 503, 511, 519, 527, 535, 543, 551, 559, 567, 575, 583, 591, 599, 607, 615, 623, 631, 639, 647, 655, 663, 671, 679, 687, 695, 703, 711, 719, 727, 735, 743, 751, 759, 767, 775, 783, 791, 799, 807, 815, 823, 831, 839, 847, 855, 863, 871, 879, 887, 895, 903, 911, 919, 927, 935, 943, 951, 959, 967, 975, 983, 991, 999, 1007, 1015};
 
 // TODO: Equation to calculate TIM2_Ticks - TASK 3
-// num_cycles_per_sample (CPS) = TIM2CLK / F_SIGNAL
-// num_cycles_for_all_samples (NC) = CPS * NS
-// TIM2_Ticks = NC / 100
-uint32_t TIM2_Ticks = TIM2CLK / F_SIGNAL * NS / 100; // How often to write new LUT value
+// TIM2_Ticks = TIM2CLK / (F_SIGNAL * NS)
+uint32_t TIM2_Ticks = TIM2CLK / (F_SIGNAL * NS); // How often to write new LUT value
 uint32_t DestAddress = (uint32_t) &(TIM3->CCR3); // Write LUT TO TIM3->CCR3 to modify PWM duty cycle
 
 /* USER CODE END PV */
@@ -113,7 +113,7 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   // TODO: Start TIM3 in PWM mode on channel 3
-  HAL_TIM_PWM_START(&htim3, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 
   // TODO: Start TIM2 in Output Compare (OC) mode on channel 1.
   HAL_TIM_OC_Start(&htim2, TIM_CHANNEL_1);
@@ -352,33 +352,46 @@ static void MX_GPIO_Init(void)
 void EXTI0_1_IRQHandler(void)
 {
 	// TODO: Debounce using HAL_GetTick()
-  static uint32_t debounce_time = 0;
-  const uint32_t DEBOUNCE_THRESHOLD = 50;
+  const uint32_t DEBOUNCE_THRESHOLD = 200;
 
-  if (HAL_GetTick() - debounce_time > DEBOUNCE_THRESHOLD) {
-    debounce_time = HAL_GetTick();
+  curr_millis = HAL_GetTick();
+
+  if (curr_millis - prev_millis > DEBOUNCE_THRESHOLD) {
+    prev_millis = curr_millis;
 
     // TODO: Disable DMA transfer and abort IT
     __HAL_TIM_DISABLE_DMA(&htim2, TIM_DMA_CC1);
     HAL_DMA_Abort_IT(&hdma_tim2_ch1);
 
+    // Increment button press count
+    static uint8_t buttonPressCount = 0;
+    buttonPressCount++;
+
+    if (buttonPressCount == 4) {
+    	buttonPressCount = 1;
+    }
+
     // Start DMA in IT mode with new LUT and re-enable transfer
     // HINT: Consider using C's "switch" function to handle LUT changes
-    // Switch based on button state
-    switch(HAL_GPIO_ReadPin(Button0_GPIO_Port, Button0_Pin)) {
-      case 0: // Sine waveform
+    // Switch based on button press count
+    switch (buttonPressCount) {
+      case 1: // Sine waveform
         HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t) Sin_LUT, DestAddress, NS);
+        lcd_command(CLEAR);  // Clear LCD
         lcd_putstring("Sine");  // TASK 6
         break;
-      case 1: // Saw waveform
+      case 2: // Saw waveform
         HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t) saw_LUT, DestAddress, NS);
+        lcd_command(CLEAR);  // Clear LCD
         lcd_putstring("Saw");  // TASK 6
         break;
-      case 2: // Triangle waveform
+      case 3: // Triangle waveform
         HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t) triangle_LUT, DestAddress, NS);
+        lcd_command(CLEAR);  // Clear LCD
         lcd_putstring("Triangle");  // TASK 6
         break;
       default:
+        buttonPressCount = 0; // Reset button press count
         break;
     }
 
